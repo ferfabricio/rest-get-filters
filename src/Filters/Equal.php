@@ -2,9 +2,7 @@
 
 namespace FerFabricio\RestGetFilters\Filters;
 
-use AbstractFilter;
-
-class Equal extends AbstractFilter
+class Equal extends AbstractFilter implements FilterInterface
 {
     public const IDENTIFIER = 'equal';
 

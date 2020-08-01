@@ -2,9 +2,7 @@
 
 namespace FerFabricio\RestGetFilters\Filters;
 
-use AbstractFilter;
-
-class Date extends AbstractFilter
+class Date extends AbstractFilter implements FilterInterface
 {
     public const IDENTIFIER = 'date';
 
