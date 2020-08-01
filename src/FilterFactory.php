@@ -4,16 +4,25 @@ namespace FerFabricio\RestGetFilters;
 
 use FerFabricio\RestGetFilters\Filters\Comparison;
 use FerFabricio\RestGetFilters\Filters\Equal;
-use FerFabricio\RestGetFilters\Filters\FilterInterface;
 
+/**
+ * Class FilterFactory.
+ */
 class FilterFactory
 {
     protected const FILTERS = [
-        Comparison::IDENTIFIER => Comparision::class
+        Comparison::IDENTIFIER => Comparison::class,
     ];
 
-    public static function getFilter($identifier): FilterInterface
+    /**
+     * @param $identifier
+     *
+     * @return string
+     */
+    public static function getFilter($identifier): string
     {
-        return self::FILTERS[$identifier] ?? Equal::class;
+        $filterClass = self::FILTERS[$identifier] ?? Equal::class;
+
+        return new $filterClass();
     }
 }

@@ -21,7 +21,7 @@ class ComparisionTest extends TestCase
                 'gt' => '>',
                 'gte' => '>=',
                 'lt' => '<',
-                'lte' => '<='
+                'lte' => '<=',
             ],
             $filter->operators()
         );

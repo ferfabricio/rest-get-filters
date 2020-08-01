@@ -1,19 +1,57 @@
 <?php
 
+namespace FerFabricio\RestGetFilters\Filters;
+
 use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * Class AbstractFilter.
+ */
 abstract class AbstractFilter
 {
+    /**
+     * @return array
+     */
     public function operators(): array
     {
         return [];
     }
 
+    /**
+     * @param Builder $query
+     * @param string $column
+     * @param array $filter
+     *
+     * @return Builder
+     */
+    public function apply(Builder $query, string $column, array $filter): Builder
+    {
+        $operator = $this->identifyOperator($column, $filter);
+        $key = $this->identifyKey($column, $filter);
+        if (array_key_exists($key, $filter)) {
+            $query->where($column, $operator, $filter[$key]);
+        }
+
+        return $query;
+    }
+
+    /**
+     * @param string $identifier
+     * @param string $column
+     *
+     * @return string
+     */
     protected function getColumnWithOperatorIdentifier(string $identifier, string $column): string
     {
         return "{$column}_{$identifier}";
     }
 
+    /**
+     * @param string $column
+     * @param array $filter
+     *
+     * @return string
+     */
     protected function identifyOperator(string $column, array $filter): string
     {
         $keys = array_keys($filter);
@@ -23,9 +61,16 @@ abstract class AbstractFilter
                 return $operator;
             }
         }
+
         return '=';
     }
 
+    /**
+     * @param string $column
+     * @param array $filter
+     *
+     * @return string
+     */
     protected function identifyKey(string $column, array $filter): string
     {
         $keys = array_keys($this->operators());
@@ -39,15 +84,5 @@ abstract class AbstractFilter
         }
 
         return $column;
-    }
-
-    public function apply(Builder $query, string $column, array $filter): Builder
-    {
-        $operator = $this->identifyOperator($column, $filter);
-        $key = $this->identifyKey($column, $filter);
-        if (array_key_exists($key, $filter)) {
-            $query->where($column, $operator, $filter[$key]);
-        }
-        return $query;
     }
 }

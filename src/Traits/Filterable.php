@@ -4,10 +4,17 @@ namespace FerFabricio\RestGetFilters\Traits;
 
 use FerFabricio\RestGetFilters\FilterFactory;
 
+/**
+ * Trait Filterable.
+ */
 trait Filterable
 {
     protected $filters = [];
 
+    /**
+     * @param $query
+     * @param array $conditions
+     */
     public function scopeFilters($query, array $conditions)
     {
         foreach ($this->filters as $column => $filter) {
