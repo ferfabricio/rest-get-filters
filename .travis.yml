@@ -5,27 +5,25 @@ sudo: false
 php:
   - 7.4
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+git:
+  depth: false
+
 matrix:
   fast_finish: true
-
-env:
-  matrix:
-    - DRIVER="xdebug" DEPENDENCIES="high"
-  global:
-    - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
 
 before_install:
   - composer self-update
   - composer clear-cache
 
-install:
-  - composer update $DEFAULT_COMPOSER_FLAGS
+install: composer update --no-interaction --no-suggest --no-progress
 
 script:
-  - vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
+  - sonar-scanner
 
 notifications:
   email: false
