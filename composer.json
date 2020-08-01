@@ -1,0 +1,36 @@
+{
+  "name": "ferfabricio/rest-get-filters",
+  "description": "Filters for Laravel applications using Eloquent scopes",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fernando Fabricio dos Santos",
+      "email": "ferfabricio@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FerFabricio\\RestGetFilters\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": [
+      "phpunit"
+    ]
+  },
+  "require": {
+    "php": "^7.2.5",
+    "laravel/framework": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5"
+  }
+}
