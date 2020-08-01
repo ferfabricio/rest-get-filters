@@ -9,6 +9,10 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+addons:
+  sonarcloud:
+    organization: "ferfabricio"
+
 git:
   depth: false
 
