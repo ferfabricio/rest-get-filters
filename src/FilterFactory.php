@@ -17,7 +17,7 @@ class FilterFactory
         Comparison::IDENTIFIER => Comparison::class,
         Date::IDENTIFIER => Date::class,
         Equal::IDENTIFIER => Equal::class,
-        Like::IDENTIFIER => Like::class
+        Like::IDENTIFIER => Like::class,
     ];
 
     /**

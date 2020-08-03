@@ -39,7 +39,7 @@ class ComparisionTest extends TestCase
             [['test', '>', '123'], ['test_gt' => '123']],
             [['test', '>=', '123'], ['test_gte' => '123']],
             [['test', '<', '123'], ['test_lt' => '123']],
-            [['test', '<=', '123'], ['test_lte' => '123']]
+            [['test', '<=', '123'], ['test_lte' => '123']],
         ];
     }
 

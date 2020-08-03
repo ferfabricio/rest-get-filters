@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Unit\Filters;
 
 use FerFabricio\RestGetFilters\Filters\Like;
@@ -8,7 +7,6 @@ use FerFabricio\RestGetFilters\Traits\Filterable;
 use Illuminate\Database\Eloquent\Builder;
 use Mockery;
 use PHPUnit\Framework\TestCase;
-
 
 class LikeTest extends TestCase
 {
