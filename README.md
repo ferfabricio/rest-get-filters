@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ferfabricio/rest-get-filters.svg?branch=master)](https://travis-ci.org/ferfabricio/rest-get-filters) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ferfabricio_rest-get-filters&metric=alert_status)](https://sonarcloud.io/dashboard?id=ferfabricio_rest-get-filters) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ferfabricio_rest-get-filters&metric=coverage)](https://sonarcloud.io/dashboard?id=ferfabricio_rest-get-filters) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ferfabricio_rest-get-filters&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=ferfabricio_rest-get-filters)
 # rest-get-filters
 
 Filters for GET requests to be used in Laravel projects
