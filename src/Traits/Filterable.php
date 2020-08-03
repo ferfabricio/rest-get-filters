@@ -9,15 +9,13 @@ use FerFabricio\RestGetFilters\FilterFactory;
  */
 trait Filterable
 {
-    protected $filters = [];
-
     /**
      * @param $query
      * @param array $conditions
      */
     public function scopeFilters($query, array $conditions)
     {
-        foreach ($this->filters as $column => $filter) {
+        foreach ($this->filters ?? [] as $column => $filter) {
             $filterInstance = FilterFactory::getFilter($filter);
             $filterInstance->apply($query, $column, $conditions);
         }

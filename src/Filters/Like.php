@@ -4,17 +4,9 @@ namespace FerFabricio\RestGetFilters\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class Like implements FilterInterface
+class Like extends AbstractFilter implements FilterInterface
 {
     public const IDENTIFIER = 'like';
-
-    /**
-     * @return array
-     */
-    public function operators(): array
-    {
-        return [];
-    }
 
     /**
      * @param Builder $query
@@ -27,6 +19,8 @@ class Like implements FilterInterface
     {
         $value = $filter[$column] ?? '';
 
-        return $query->where($column, 'like', "%{$value}%");
+        $query->where($column, 'like', "%{$value}%");
+
+        return $query;
     }
 }

@@ -38,6 +38,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^8.5",
-    "friendsofphp/php-cs-fixer": "^2.16"
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "mockery/mockery": "^1.4"
   }
 }
