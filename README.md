@@ -8,6 +8,13 @@ There are several approaches to create filters in GET requests, including this o
 
 The main objective of this package is to do something simplistic and that works well.
 
+
+## Instalation
+
+```
+composer require ferfabricio/rest-get-filters
+```
+
 ## Usage
 
 Steps to setup this package:
