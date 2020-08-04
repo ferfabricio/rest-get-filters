@@ -86,7 +86,7 @@ class Example extends Model
       'name'
   ];
   
-  $filters = [
+  protected $filters = [
       'created_at' => DateFilter::IDENTIFIER,
       'name' => LikeFilter::IDENTIFIER
   ];
