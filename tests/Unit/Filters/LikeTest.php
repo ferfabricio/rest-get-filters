@@ -29,7 +29,8 @@ class LikeTest extends TestCase
 
     public function testApplyInClass()
     {
-        $exampleModel = new class() {
+        $exampleModel = new class ()
+        {
             use Filterable;
 
             protected $filters = [
@@ -45,6 +46,26 @@ class LikeTest extends TestCase
         $exampleModel->scopeFilters(
             $query,
             ['test' => 'to like']
+        );
+    }
+
+    public function testWithEmptyValue()
+    {
+        $exampleModel = new class ()
+        {
+            use Filterable;
+
+            protected $filters = [
+                'test' => Like::IDENTIFIER,
+            ];
+        };
+
+        $query = Mockery::spy(Builder::class);
+        $query->shouldNotReceive('where');
+
+        $exampleModel->scopeFilters(
+            $query,
+            ['test' => '']
         );
     }
 }

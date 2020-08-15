@@ -19,7 +19,9 @@ class Like extends AbstractFilter implements FilterInterface
     {
         $value = $filter[$column] ?? '';
 
-        $query->where($column, 'like', "%{$value}%");
+        if (!$this->checkEmptyOrNull($value)) {
+            $query->where($column, 'like', "%{$value}%");
+        }
 
         return $query;
     }

@@ -28,11 +28,22 @@ abstract class AbstractFilter
     {
         $operator = $this->identifyOperator($column, $filter);
         $key = $this->identifyKey($column, $filter);
-        if (array_key_exists($key, $filter)) {
+
+        if (array_key_exists($key, $filter) && !$this->checkEmptyOrNull($filter[$key])) {
             $query->where($column, $operator, $filter[$key]);
         }
 
         return $query;
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    protected function checkEmptyOrNull($value): bool
+    {
+        return is_null($value) || empty($value);
     }
 
     /**

@@ -29,7 +29,8 @@ class EqualTest extends TestCase
 
     public function testApplyInClass()
     {
-        $exampleModel = new class() {
+        $exampleModel = new class ()
+        {
             use Filterable;
 
             protected $filters = [
@@ -46,5 +47,36 @@ class EqualTest extends TestCase
             $query,
             ['test' => 'to equal']
         );
+    }
+
+    /**
+     * @dataProvider nullAndEmptyScenario
+     */
+    public function testWithEmptyValue($value)
+    {
+        $exampleModel = new class ()
+        {
+            use Filterable;
+
+            protected $filters = [
+                'test' => Equal::IDENTIFIER,
+            ];
+        };
+
+        $query = Mockery::spy(Builder::class);
+        $query->shouldNotReceive('where');
+
+        $exampleModel->scopeFilters(
+            $query,
+            ['test' => $value]
+        );
+    }
+
+    public function nullAndEmptyScenario(): array
+    {
+        return [
+            [''],
+            [null]
+        ];
     }
 }
