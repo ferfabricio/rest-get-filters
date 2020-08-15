@@ -47,4 +47,23 @@ class LikeTest extends TestCase
             ['test' => 'to like']
         );
     }
+
+    public function testWithEmptyValue()
+    {
+        $exampleModel = new class() {
+            use Filterable;
+
+            protected $filters = [
+                'test' => Like::IDENTIFIER,
+            ];
+        };
+
+        $query = Mockery::spy(Builder::class);
+        $query->shouldNotReceive('where');
+
+        $exampleModel->scopeFilters(
+            $query,
+            ['test' => '']
+        );
+    }
 }
