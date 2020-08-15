@@ -43,7 +43,7 @@ abstract class AbstractFilter
      */
     protected function checkEmptyOrNull($value): bool
     {
-        return is_null($value) || empty($value);
+        return null === $value || empty($value);
     }
 
     /**

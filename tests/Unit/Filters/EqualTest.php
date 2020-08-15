@@ -29,8 +29,7 @@ class EqualTest extends TestCase
 
     public function testApplyInClass()
     {
-        $exampleModel = new class ()
-        {
+        $exampleModel = new class() {
             use Filterable;
 
             protected $filters = [
@@ -51,11 +50,12 @@ class EqualTest extends TestCase
 
     /**
      * @dataProvider nullAndEmptyScenario
+     *
+     * @param mixed $value
      */
     public function testWithEmptyValue($value)
     {
-        $exampleModel = new class ()
-        {
+        $exampleModel = new class() {
             use Filterable;
 
             protected $filters = [
@@ -76,7 +76,7 @@ class EqualTest extends TestCase
     {
         return [
             [''],
-            [null]
+            [null],
         ];
     }
 }

@@ -29,8 +29,7 @@ class LikeTest extends TestCase
 
     public function testApplyInClass()
     {
-        $exampleModel = new class ()
-        {
+        $exampleModel = new class() {
             use Filterable;
 
             protected $filters = [
@@ -51,8 +50,7 @@ class LikeTest extends TestCase
 
     public function testWithEmptyValue()
     {
-        $exampleModel = new class ()
-        {
+        $exampleModel = new class() {
             use Filterable;
 
             protected $filters = [
